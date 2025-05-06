@@ -1,0 +1,49 @@
+allprojects {
+    repositories {
+        // Using JCenter throws 502 Bad Gateway, Refer: https://github.com/facebook/react-native/issues/32734#issuecomment-1122251731
+        // JCenter planning to sunset, Refer: https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+        mavenCentral()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+    }
+
+
+    buildscript {
+        ext {
+            buildToolsVersion = "35.0.0"
+            minSdkVersion = 24
+            compileSdkVersion = 35
+            targetSdkVersion = 35
+            ndkVersion = "27.1.12297006"
+            kotlinVersion = "2.0.21"
+        }
+        repositories {
+            google()
+            mavenCentral()
+            maven {
+                url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+            }
+//            maven {
+//                url = uri("")
+//                credentials {
+//                    username = "<username>"
+//                    password = "<pw>"
+//                }
+//                authentication {
+//                    register("basic", BasicAuthentication::class)
+//                }
+//            }
+        }
+        dependencies {
+            classpath("com.android.tools.build:gradle")
+            classpath("com.facebook.react:react-native-gradle-plugin")
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+            classpath "android.intune-sdk.gradle-plugin:com.microsoft.intune.mam.build:10.2.1"
+        }
+    }
+}
+
+ext {
+    REACT_NATIVE_NODE_MODULES_DIR = "../../../react-native"
+}
