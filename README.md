@@ -1,1 +1,1 @@
-AwesomeProject contains all the react-native files. In the default react-native structure, the android/ and ios/ folders also lives within this folder. However, in the sample project, the android/ directory is extracted into its own directory android-project/android.
+AwesomeProject contains all the react-native files. In the default react-native structure, the android/ and ios/ folders also lives within this folder. However, in this project, the android/ and ios/ directories are extracted into its own directories -> android-project/android and ios-project/ios.
